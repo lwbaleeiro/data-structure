@@ -5,6 +5,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 import java.util.function.Consumer;
 
 public class DataStructurePerformance {
@@ -22,6 +23,7 @@ public class DataStructurePerformance {
 
         List<Integer> arrayList = new ArrayList<>();
         List<Integer> linkedList = new LinkedList<>();
+        Stack<Integer> stackList = new Stack<>();
 
         long arrayListInsertTime = measureExecutionTime(list -> {
             for (int i = 0; i < SIZE; i++) {
@@ -35,9 +37,16 @@ public class DataStructurePerformance {
             }
         }, linkedList);
 
+        long stackListInsertTime = measureExecutionTime(list -> {
+            for (int i = 0; i < SIZE; i++) {
+                list.push(i);
+            }
+        }, stackList);
+
         System.out.println();
         System.out.println("ArrayList insert time (nano seconds): " + arrayListInsertTime);
         System.out.println("Linked List insert time (nano seconds): " + linkedListInsertTime);
+        System.out.println("Stack insert time (nano seconds): " + stackListInsertTime);
     }
 
 }
