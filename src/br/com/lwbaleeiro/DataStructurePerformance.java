@@ -3,6 +3,7 @@ package br.com.lwbaleeiro;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -20,6 +21,7 @@ public class DataStructurePerformance {
         final int SIZE = 100000;
 
         List<Integer> arrayList = new ArrayList<>();
+        List<Integer> linkedList = new LinkedList<>();
 
         long arrayListInsertTime = measureExecutionTime(list -> {
             for (int i = 0; i < SIZE; i++) {
@@ -27,8 +29,15 @@ public class DataStructurePerformance {
             }
         }, arrayList);
 
+        long linkedListInsertTime = measureExecutionTime(list -> {
+            for  (int i = 0; i < SIZE; i++) {
+                list.add(i);
+            }
+        }, linkedList);
+
         System.out.println();
-        System.out.println("ArrayList insert time (nano seconds):" + arrayListInsertTime);
+        System.out.println("ArrayList insert time (nano seconds): " + arrayListInsertTime);
+        System.out.println("Linked List insert time (nano seconds): " + linkedListInsertTime);
     }
 
 }
