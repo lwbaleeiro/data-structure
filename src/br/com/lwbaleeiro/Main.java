@@ -2,6 +2,7 @@ package br.com.lwbaleeiro;
 
 import static br.com.lwbaleeiro.ArrayExemple.testArrays;
 import static br.com.lwbaleeiro.DataStructurePerformance.comparePerformance;
+import static br.com.lwbaleeiro.HashMapExemple.testHashMap;
 import static br.com.lwbaleeiro.HeapExemple.testHeap;
 import static br.com.lwbaleeiro.LinkedListExemple.testLinkedList;
 import static br.com.lwbaleeiro.QueueExemple.testQueue;
@@ -28,6 +29,9 @@ public class Main {
 
         System.out.println(" === HEAP (PRIORITY QUEUE) === ");
         testHeap();
+
+        System.out.println(" === HASHMAP ===");
+        testHashMap();
 
         // Comparação de estrutura de dados
         comparePerformance();

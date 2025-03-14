@@ -23,6 +23,7 @@ public class DataStructurePerformance {
         Stack<Integer> stackList = new Stack<>();
         Queue<Integer> queueList = new LinkedList<>();
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        HashMap<Integer, Integer> hashMap = new HashMap<>();
 
         long arrayListInsertTime = measureExecutionTime(list -> {
             for (int i = 0; i < SIZE; i++) {
@@ -54,12 +55,19 @@ public class DataStructurePerformance {
             }
         }, priorityQueue);
 
+        long hashMapInsertTime = measureExecutionTime(list -> {
+            for (int i = 0; i < SIZE; i++) {
+                list.put(i, i);
+            }
+        }, hashMap);
+
         System.out.println();
         System.out.println("ArrayList insert time (nano seconds): " + arrayListInsertTime);
         System.out.println("Linked List insert time (nano seconds): " + linkedListInsertTime);
         System.out.println("Stack insert time (nano seconds): " + stackListInsertTime);
         System.out.println("Queue insert time (nano seconds): " + queueListInsertTime);
         System.out.println("Priority Queue insert time (nano seconds): " + priorityQueueInsertTime);
+        System.out.println("HashMap insert time (nano seconds): " + hashMapInsertTime);
     }
 
 }
