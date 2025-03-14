@@ -2,7 +2,9 @@ package br.com.lwbaleeiro;
 
 import static br.com.lwbaleeiro.ArrayExemple.testArrays;
 import static br.com.lwbaleeiro.DataStructurePerformance.comparePerformance;
+import static br.com.lwbaleeiro.HeapExemple.testHeap;
 import static br.com.lwbaleeiro.LinkedListExemple.testLinkedList;
+import static br.com.lwbaleeiro.QueueExemple.testQueue;
 import static br.com.lwbaleeiro.StackExemple.testStack;
 
 public class Main {
@@ -19,6 +21,13 @@ public class Main {
         System.out.println(" === STACK === ");
         testStack();
         System.out.println();
+
+        System.out.println(" === QUEUE === ");
+        testQueue();
+        System.out.println();
+
+        System.out.println(" === HEAP (PRIORITY QUEUE) === ");
+        testHeap();
 
         // Comparação de estrutura de dados
         comparePerformance();

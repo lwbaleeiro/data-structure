@@ -2,10 +2,7 @@ package br.com.lwbaleeiro;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 import java.util.function.Consumer;
 
 public class DataStructurePerformance {
@@ -24,6 +21,8 @@ public class DataStructurePerformance {
         List<Integer> arrayList = new ArrayList<>();
         List<Integer> linkedList = new LinkedList<>();
         Stack<Integer> stackList = new Stack<>();
+        Queue<Integer> queueList = new LinkedList<>();
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
 
         long arrayListInsertTime = measureExecutionTime(list -> {
             for (int i = 0; i < SIZE; i++) {
@@ -43,10 +42,24 @@ public class DataStructurePerformance {
             }
         }, stackList);
 
+        long queueListInsertTime = measureExecutionTime(list -> {
+            for (int i = 0; i < SIZE; i++) {
+                list.add(i);
+            }
+        }, queueList);
+
+        long priorityQueueInsertTime = measureExecutionTime(list -> {
+            for (int i = 0; i < SIZE; i++) {
+                list.add(i);
+            }
+        }, priorityQueue);
+
         System.out.println();
         System.out.println("ArrayList insert time (nano seconds): " + arrayListInsertTime);
         System.out.println("Linked List insert time (nano seconds): " + linkedListInsertTime);
         System.out.println("Stack insert time (nano seconds): " + stackListInsertTime);
+        System.out.println("Queue insert time (nano seconds): " + queueListInsertTime);
+        System.out.println("Priority Queue insert time (nano seconds): " + priorityQueueInsertTime);
     }
 
 }
